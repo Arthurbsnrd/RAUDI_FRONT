@@ -4,27 +4,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RAUDI</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="./css/style.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- Ajout de jQuery pour faciliter les requêtes AJAX -->
     </head>
     <body>            
         <header>
             <div class="conteneur">
                 <div class="haut-gauche">
-                    <a href="index.html">
+                    <a href="./index.html">
                         <h1>RAUDI</h1>
                     </a>
                 </div>
                 <div class="clear"></div>
                 <nav>
                     <ul>
-                        <li><a href="/HTML/Inscription.html">Inscription</a></li>
-                        <li><a href="/HTML/Connexion.html">Connexion</a></li>
-                        <li><a href="/HTML/Gestion.html">Gestion</a></li>
+                        <li><a href="./HTML/Inscription.html">Inscription</a></li>
+                        <li><a href="./HTML/Connexion.html">Connexion</a></li>
+                        <li><a href="./HTML/Gestion.html">Gestion</a></li>
+                        <li><a href="./HTML/Comptabilité.html">Gestion</a></li>
                     </ul>
                 </nav>
             </div>
-        </header> 
+        </header>
         
 
         <section id="voitures-section">
@@ -43,7 +44,7 @@
                         var carCard = $("<div class='car-card'></div>");
                         carCard.append("<h2>" + voiture.nom + "</h2>");
                         carCard.append("<p> Moteur: " + voiture.moteur + "</p>");
-                        carCard.append("<a href='/HTML/Detail.html'>Voir les détails</a>");
+                        carCard.append("<a href='/HTML/Detail.html?id=" + voiture.id_modele + "'>Voir les détails</a>");
     
                         // Ajouter la carte à la section des voitures
                         voituresSection.append(carCard);
