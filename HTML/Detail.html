@@ -62,7 +62,7 @@
             } else {
                 // Requête pour les options de la voiture (cas où l'utilisateur n'est pas connecté)
                 $.get("http://localhost:8000/modele/modeles/" + idVoiture, function(voiture) {
-                    displayCarDetails(voiture);
+                    displayCarDetailsNoCo(voiture);
                     ; // Supposons que les options sont disponibles dans l'objet voiture
                 });
             }
@@ -73,6 +73,18 @@
             // Assurez-vous que le token est stocké localement lors de la connexion
             let token = localStorage.getItem('token'); 
             return token;
+        }
+
+        function displayCarDetailsNoCo(voiture) {
+            console.log(voiture);
+            var detailVoiture = $("#detail-voiture");
+            var carCard = $("<div class='car-card'></div>");
+            carCard.append("<h2>" + voiture.nom + "</h2>");
+            carCard.append("<p> Moteur: " + voiture.moteur + "</p>");
+            carCard.append("<p> Prix: " + voiture.prix + " €</p>");
+            carCard.append("<p> Nombre de portes: " + voiture.nbPortes + " portes</p>");
+            carCard.append("<p> Nombre de places: " + voiture.nbPlaces + " places</p>");
+            detailVoiture.append(carCard);
         }
 
         // Fonction pour afficher les détails de la voiture
