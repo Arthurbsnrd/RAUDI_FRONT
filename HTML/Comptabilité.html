@@ -19,9 +19,9 @@
             <div class="clear"></div>
             <nav>
                 <ul>
-                    <li><a href="/HTML/Inscription.html">Inscription</a></li>
-                    <li><a href="/HTML/Connexion.html">Connexion</a></li>
-                    <li><a href="/HTML/Gestion.html">Gestion</a></li>
+                    <li><a href="/Inscription.html">Inscription</a></li>
+                    <li><a href="/Connexion.html">Connexion</a></li>
+                    <li><a href="/Gestion.html">Gestion</a></li>
                 </ul>
             </nav>
         </div>
@@ -81,9 +81,12 @@
             console.log(achats);
             var achatsList = $("#achats-list");
             achatsList.empty();
-
-            for (var i = 0; i < achats.length; i++) {
-                achatsList.append("<li>" + achats[i].description + " - " + achats[i].prixtotal + " €</li>");
+            if (achats.length == 0) {
+                achatsList.append("<li>Aucun achat effectué</li>");
+            } else {
+                for (var i = 0; i < achats.length; i++) {
+                    achatsList.append("<li>" + achats[i].description + " - " + achats[i].prixtotal + " €</li>");
+                }
             }
         }
 
@@ -94,8 +97,13 @@
 
             // additionne les valeurs de chaque mois
             var total = 0;
-            for (var i = 0; i < gainMois.length; i++) {
-                total += gainMois[i].prixtotal;
+            if (!gainMois) {
+                gainMoisList.append("<li>Aucun achat effectué</li>");
+            } else {
+                for (var i = 0; i < gainMois.length; i++) {
+                    total += gainMois.prixtotal;
+                }
+                gainMoisList.append("<li>" + total + " €</li>");
             }
         }
 
