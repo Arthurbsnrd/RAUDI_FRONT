@@ -1,0 +1,31 @@
+#historique {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+/* Styles pour les éléments d'historique */
+.historique-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.historique-item .date {
+    font-weight: bold;
+}
+
+.historique-item .description {
+    margin-top: 5px;
+    color: #666;
+}
+
+/* Styles pour les liens dans l'historique */
+.historique-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.historique-item a:hover {
+    text-decoration: underline;
+}
