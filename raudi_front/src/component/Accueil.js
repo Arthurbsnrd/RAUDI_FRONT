@@ -15,12 +15,12 @@ function Accueil(props){
             <div className='services'>
                 <div className='service'>
                     <h3>Customisation de véhicule</h3>
-                    <img class="img-service" src={Custom} alt=""></img>
+                    <img class="img-service"  alt=""></img>
                 </div>
             
                 <div className='service'>
                     <h3>Vente de véhicule</h3>
-                    <img class="img-service" src={Prototype} alt=""></img>
+                    <img class="img-service"  alt=""></img>
                 </div>     
             </div> 
         </div>

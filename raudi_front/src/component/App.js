@@ -25,14 +25,14 @@ function App() {
   return(
     
     <div className={theme}>
-      <Banner mode={theme}/>
+      <Navbar mode={theme}/>
       <button class="mode" onClick={toggleTheme}>🌙</button>
 
       <Routes>
         <Route path="/" element={<Accueil mode={theme} />}>
         </Route>
 
-        <Route path="/Detail" element={<Produit mode={theme}/>}>
+        <Route path="/Detail" element={<Detail mode={theme}/>}>
         </Route>
         
       </Routes>
