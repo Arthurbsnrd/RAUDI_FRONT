@@ -13,4 +13,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-sss
