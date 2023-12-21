@@ -3,19 +3,67 @@
 <head>
     <title>Inscription</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="/CSS/Inscription.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/Inscription.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
+    <header>
+        <div class="conteneur">
+            <div class="haut-gauche">
+                <a href="../index.html">
+                    <h1>RAUDI</h1>
+                </a>
+            </div>
+            <div class="clear"></div>
+            <nav>
+                <ul>
+                    <li><a href="./HTML/Inscription.html">Inscription</a></li>
+                    <li><a href="./HTML/Connexion.html">Connexion</a></li>
+                    <li><a href="./HTML/Gestion.html">Gestion</a></li>
+                    <li><a href="./HTML/Comptabilité.html">Comptabilité</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <h1>Inscription</h1>
 
-    <form action="/submit_inscription" method="post">
-        <label for="username">Nom d'utilisateur:</label><br>
-        <input type="text" id="username" name="username" required><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="password">Mot de passe:</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" value="S'inscrire">
+    <form id="inscription-form">
+        <label for="pseudo">Pseudo:</label>
+        <input type="text" id="pseudo" name="pseudo" required>
+
+        <label for="mail">Adresse e-mail:</label>
+        <input type="email" id="mail" name="mail" required>
+
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="submitForm()">S'inscrire</button>
     </form>
+
+    <script>
+        function submitForm() {
+            var pseudo = document.getElementById('pseudo').value;
+            var mail = document.getElementById('mail').value;
+            var password = document.getElementById('password').value;
+
+            // Effectuer la requête AJAX pour créer un nouvel utilisateur
+            $.ajax({
+                url: 'http://localhost:8000/user/registre',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ pseudo, mail, password }),
+                success: function(data) {
+                    console.log('Utilisateur créé avec succès:');
+                    // Rediriger vers une autre page, afficher un message, etc., en fonction de vos besoins
+                },
+                error: function(err) {
+                    console.error('Erreur lors de la création de l\'utilisateur:', err.responseJSON.message);
+                    // Afficher un message d'erreur à l'utilisateur, rediriger, etc., en fonction de vos besoins
+                }
+            });
+        }
+    </script>
 </body>
 </html>
