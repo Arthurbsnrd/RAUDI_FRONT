@@ -1,0 +1,40 @@
+footer{
+    bottom:0;
+    width:100%;
+    margin-top:50px;
+    background-color: black;
+    margin-top: 7.5rem;
+}
+.siteFooter{
+    color: white;
+    background-color: #000000;
+    padding:  0 32px;
+    padding-bottom: 6px;
+    margin-top: -15px;
+}
+.liste{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: blue;
+}
+
+.dark{
+    background-color: pink;
+    color: rgb(138, 0, 129);
+}
+
+.banner.dark{
+    background-color: pink;
+}
+
+.M3drift.dark{
+    color: rgb(138, 0, 129);
+    background-color: pink;
+}
+
+.siteFooter.dark{
+    background-color: pink;
+}

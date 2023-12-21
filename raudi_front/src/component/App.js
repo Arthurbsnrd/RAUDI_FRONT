@@ -1,35 +1,46 @@
-import React from 'react';
-import './App.css';
+import '../style/App.css';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import Detail from './Detail';
+import Accueil from './Accueil';
+
+import { useState } from 'react';
+
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>RAUDI Cars</h1>
-        <p>Discover the excellence in automotive engineering.</p>
-        <img
-          src="https://via.placeholder.com/400x200"
-          className="App-logo"
-          alt="RAUDI Logo"
-        />
-      </header>
-      <section className="CarModels">
-        <h2>Featured Models</h2>
-        <div className="CarList">
-          {/* Ajoutez les informations sur les modèles de voitures RAUDI */}
-          <div className="CarCard">
-            <img src="https://via.placeholder.com/200x100" alt="Car Model" />
-            <h3>RAUDI A1</h3>
-            <p>Compact, stylish, and powerful.</p>
-          </div>
-          {/* Ajoutez d'autres modèles de voitures ici */}
-        </div>
-      </section>
-      <footer className="App-footer">
-        <p>&copy; 2023 RAUDI Cars. All rights reserved.</p>
-      </footer>
+
+  
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+      if (theme === 'light') {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+    };
+  return(
+    
+    <div className={theme}>
+      <Banner mode={theme}/>
+      <button class="mode" onClick={toggleTheme}>🌙</button>
+
+      <Routes>
+        <Route path="/" element={<Accueil mode={theme} />}>
+        </Route>
+
+        <Route path="/Detail" element={<Produit mode={theme}/>}>
+        </Route>
+        
+      </Routes>
+      
+      <Footer mode={theme}/>
     </div>
-  );
+  )
+
 }
 
 export default App;
