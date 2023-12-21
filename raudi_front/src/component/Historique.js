@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Comptable.css';
+import './Historique.css';
 
-const Comptable = () => {
+const Historique = () => {
     const [purchaseHistory, setPurchaseHistory] = useState([]);
     const [monthlySummary, setMonthlySummary] = useState({});
 
@@ -14,8 +14,8 @@ const Comptable = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Comptable</h1>
+        <div className="historique">
+            <h1 className="historique-header">Historique</h1>
             <h2>Purchase History</h2>
             <ul>
                 {purchaseHistory.map((purchase, index) => (
@@ -23,10 +23,9 @@ const Comptable = () => {
                 ))}
             </ul>
             <h2>Monthly Summary</h2>
-            <p>Total Gain: {monthlySummary.totalGain}</p>
-            {/* Display other summary details */}
+            {/* Display monthlySummary data here */}
         </div>
     );
-};
+}
 
-export default Comptable;
+export default Historique;
