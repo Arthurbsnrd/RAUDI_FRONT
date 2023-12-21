@@ -1,11 +1,11 @@
 <!Doctype html>
 <html>
     <head>
-        <meta charset="utf-8" >
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RAUDI</title>
         <link rel="stylesheet" href="css/style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="http://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,500,400italic,300italic,300,100italic,100" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- Ajout de jQuery pour faciliter les requêtes AJAX -->
     </head>
     <body>            
         <header>
@@ -25,25 +25,34 @@
                 </nav>
             </div>
         </header> 
-        <section>
-            <div class="car-card">
-                <h2>Voiture 1</h2>
-                <p>Informations sur la voiture 1...</p>
-                <a href="/HTML/Detail1.html">Voir les détails</a>
-            </div>
-            
-            <div class="car-card">
-                <h2>Voiture 2</h2>
-                <p>Informations sur la voiture 2...</p>
-                <a href="/HTML/Detail2.html">Voir les détails</a>
-            </div>
-            
-            <div class="car-card">
-                <h2>Voiture 3</h2>
-                <p>Informations sur la voiture 3...</p>
-                <a href="/HTML/Detail3.html">Voir les détails</a>
-            </div>
-        </section>    
+        
+
+        <section id="voitures-section">
+            <!-- Les données des voitures seront affichées ici -->
+        </section>
+    
+        <script>
+            // Utilisation de jQuery pour effectuer une requête AJAX
+            $(document).ready(function() {
+                // Effectuer une requête GET vers le serveur Node.js
+                $.get("http://localhost:8000/modele/modeles", function(data) {
+                    // Manipuler les données reçues et les afficher dans la section dédiée
+                    var voituresSection = $("#voitures-section");
+                    data.forEach(function(voiture) {
+                        // Créer une carte pour chaque voiture
+                        var carCard = $("<div class='car-card'></div>");
+                        carCard.append("<h2>" + voiture.nom + "</h2>");
+                        carCard.append("<p> Moteur: " + voiture.moteur + "</p>");
+                        carCard.append("<a href='/HTML/Detail.html'>Voir les détails</a>");
+    
+                        // Ajouter la carte à la section des voitures
+                        voituresSection.append(carCard);
+                    });
+                });
+            });
+        </script>
+        
+
         <footer>
             <div class="conteneur">
                 <br>
