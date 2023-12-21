@@ -1,4 +1,4 @@
-import '../style/Produit.css';
+import '../style/Detail.css';
 import React from 'react';
 import { Link } from "react-router-dom";
 
