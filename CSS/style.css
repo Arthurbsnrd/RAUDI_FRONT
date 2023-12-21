@@ -1,0 +1,303 @@
+h1,h2,h2,p,a,ul,li{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    }
+    html, body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    }
+    header{
+    background: #F2F2F2;
+    padding: 0 0 0.3em 0;
+    margin: 0 0 2em 0;
+    border-bottom: 1px solid #c0c0c0;
+    }
+    section{ min-height: 700px; }
+    footer{ /* zone du bas */
+    background: #F2F2F2; /* fond */
+    border-top: 1px solid #c0c0c0; /* bordure en haut */
+    margin: 2em 0 0 0; /* marge du dessus */
+    text-align: center; /* centrer le texte */
+    padding: 20px 0; /* marge intérieur */
+    }
+    .conteneur{
+    max-width: 1170px;
+    margin: 0 auto;
+    border: 1px dotted;
+    }
+    .clear{
+    clear: both;
+    }
+    .haut-gauche{
+    float: left;
+    width: 70%;
+    /*background: #074eee;*/
+    }
+    .haut-droite{
+    float: right;
+    width: 25%;
+    height: 75px;
+    /*background: #bcbe00; */
+    }
+    nav{
+    margin: 0;
+    text-align: center;
+    /* background: #fda500; */
+    min-height: 30px;
+    }
+    .milieu-haut-gauche{
+    float: left;
+    width: 30%;
+    background: #074eee;
+    }
+    .milieu-haut-droite{
+    float: left;
+    width: 70%;
+    font-size: 1.2em;
+    vertical-align: middle;
+    display: table; 
+    line-height: 1.3em;
+    text-align: center;
+    height: 20vh; 
+    background: #bcbe00; 
+    }
+    .milieu-gauche{
+    float: left;
+    width: 60%;
+    margin: 1.5em 0 1.5em 0;
+    background: #074eee;
+    }
+    .milieu-droite{
+    float: right;
+    width: 30%;
+    margin: 1.5em 0 1.5em 0;
+    background: #bcbe00; 
+    }   
+    .haut-gauche   h1{
+    color: #000000;
+    font-size: 1.7em;
+    margin: 10px 0 0 55px;
+    text-shadow: 1px 1px 1px;
+    }
+    .haut-gauche   h2{
+    margin: 5px 0 0 0;
+    font-size: 1.1em;
+    letter-spacing: 3px;
+    }
+    .haut-gauche   h2   span{
+    color: #8daab7;
+    }
+    .haut-droite    a{
+    color: #8daab7;
+    display: block;
+    text-align: right;
+    /* border: 1px solid; */
+    }
+    .haut-droite    a:first-child{
+    margin: 10px 0 0 0;
+    }
+    .haut-droite   a:hover{
+    text-decoration: underline;
+    }
+    nav li {  
+    display: inline;  
+    list-style: none;  
+    }  
+    nav   a{
+    display:inline-block;  
+    line-height: 30px;
+    color: #000000;
+    padding: 0 5%;
+    }
+    nav   a:hover{
+    color: #ffffff;
+    background: #8daab7;
+    border-radius: 10px;
+    transition: padding .2s;
+    }
+    .bleu{ color: #8daab7; }
+    .gras{ font-weight: bold; }
+    .italic{ font-style: italic; }
+    .milieu-haut-gauche{
+    float: left;
+    width: 30%;
+    /* background: yellow; */
+    }
+    .milieu-haut-droite{
+    float: left;
+    width: 70%;
+    font-size: 1.2em;
+    vertical-align: middle;
+    display: table; 
+    line-height: 1.3em;
+    text-align: center;
+    height: 20vh; 
+    /* background: orange; */
+    }
+    .milieu-haut-droite  p{
+    display: table-cell; 
+    vertical-align: middle;
+    }
+    .milieu-gauche{
+    float: left;
+    width: 60%;
+    margin: 1.5em 0 1.5em 0;
+    /*background: #f12f65;*/
+    }
+    .milieu-gauche  h2, .milieu-bas  h2 {
+    color: #8daab7;
+    padding: 0.5em;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    }
+    .milieu-gauche-profil{ float: left; width: 15%; }
+    .milieu-droite-profil{ float: left; margin-left: 5%; width: 80%; padding: 1em 0 0 0; }
+    .milieu-bas-competences{ /*background: green;*/ margin: 3em 0 0 0; }
+    .milieu-bas-competences-design{ width: 21%; float: left; margin-right: 5%; /*background: yellow;*/ text-align: center; min-height: 300px; }
+    .milieu-bas-competences-integration{ width: 21%; float: left; margin-right: 5%; /*background: yellow;*/ text-align: center; min-height: 300px;  }
+    .milieu-bas-competences-developpement{ width: 21%; float: left; margin-right: 5%; /*background: yellow;*/ text-align: center; min-height: 300px;  }
+    .milieu-bas-competences-referencement{ width: 21%; float: left; /*background: yellow;*/ text-align: center; min-height: 300px;  }
+    .milieu-bas-competences  img{transition: 0.5s; }
+    .milieu-bas-competences  img:hover{ transform: rotate(-360deg); }
+    .img-responsive{ width: 100%; }
+    .img-responsive50{ width: 80%; }
+    .img-responsive70{ width: 70%; }
+    .milieu-gauche  ul  li{
+    list-style-type: none;
+    background: url(img/fleche.jpg) left center no-repeat;
+    padding: 0 0 0 30px;
+    margin: 3% 0;
+    }
+    .milieu-droite{
+    float: right;
+    width: 30%;
+    margin: 1.5em 0 1.5em 0;
+    /* background: #3298ff; */
+    }
+    .milieu-droite   .cadre{
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+    margin: 15px 0;
+    }
+    .milieu-droite   .cadre:first-child{ margin: 0; }
+    .milieu-droite   .cadre  h2{
+    color: #333333;
+    font-size: 15px;
+    text-align: center;
+    padding: 5px 10px;
+    background: #f2f3f3;
+    border-bottom: 1px solid #c0c0c0;
+    border-radius: 10px 10px 0 0;
+    }
+    .milieu-droite   .cadre  p{
+    padding: 10px;
+    }
+    .milieu-droite   .cadre  form{
+    padding: 10px;
+    }
+    .milieu-droite   .cadre  ul  li{
+    margin: 10px 0 0 30px;
+    padding: 5px;
+    }
+    input[type="submit"]{
+        color: #fff;
+        background-color: #8daab7;
+        margin: 1em 0 0 0;
+        border-color: #222;
+        display: inline-block;
+        padding: .5em 1em;
+        font-weight: 400;
+        line-height: 1.2;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: .2em;
+        text-decoration: none;
+    }
+    input[type="submit"]:hover{
+    background: #000;
+    }
+    input { width: 100%; }
+    textarea{ resize: none; width: 100%; }
+    footer{
+    background: #F2F2F2;
+    border-top: 1px solid #c0c0c0;
+    margin: 2em 0 0 0;
+    text-align: center;
+    padding: 20px 0;
+    }
+    footer  a{
+    color: #8daab7;
+    }
+    footer  a:hover{
+    text-decoration: underline;
+    }
+    footer  p{
+    margin: 7px 0 0 0;
+    }
+    @media (max-width: 768px) {  
+    .haut-gauche{ width: 100%; margin-bottom: 1em;} 
+    .haut-droite{ display: none; } 
+    nav   a{ display: block; }
+    .milieu-gauche{ width: 100%; /* background: red; */ }
+    .milieu-droite{ width: 100%; /* background: green; */ }
+    .milieu-droite   .cadre{ width: 100%; }
+    .milieu-haut-gauche, .milieu-haut-droite{ width: 100%; }
+    .milieu-bas-competences-design{ width: 40%; }
+    .milieu-bas-competences-integration{ width: 40%;  }
+    .milieu-bas-competences-developpement{ width: 40%; }
+    .milieu-bas-competences-referencement{ width: 40%;  }
+    }
+    @media (max-width: 992px) {     } 
+    @media (max-width: 1200px) {    } 
+    
+    a {
+        color: #8daab7;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+      
+      footer a {
+        color: #333333; /* Couleur des liens dans le pied de page ajustée */
+      }
+      
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      header {
+        background: #f2f2f2;
+        border-bottom: 1px solid #c0c0c0;
+      }
+      
+      section {
+        min-height: 700px;
+      }
+      
+      footer {
+        background: #f2f2f2;
+        border-top: 1px solid #c0c0c0;
+        margin: 2em 0 0 0;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .milieu-bas-competences {
+        display: flex;
+        justify-content: space-between;
+        margin: 3em 0 0 0;
+      }
+      
+      .milieu-bas-competences div {
+        width: 23%; /* Ajustez selon vos besoins */
+        text-align: center;
+        min-height: 300px;
+      }
+      
