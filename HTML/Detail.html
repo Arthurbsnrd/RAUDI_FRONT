@@ -43,7 +43,6 @@
             // Conditionner la requête en fonction de la présence ou de l'absence d'un token
             if (tokenExists()) {
                 let token = tokenExists()
-                console.log(token)
                 // Requête pour les détails de la voiture (cas où l'utilisateur est connecté)
                 $.ajax({
                 url: "http://localhost:8000/modele/modeles/" + idVoiture + "/options",
