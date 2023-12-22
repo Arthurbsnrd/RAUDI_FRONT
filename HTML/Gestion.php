@@ -71,6 +71,13 @@
 </html>
 
 <script>
+  
+        // Fonction pour vérifier si un token existe
+        function tokenExists() {
+            // Assurez-vous que le token est stocké localement lors de la connexion
+            let token = localStorage.getItem('token'); 
+            return token;
+        }
     $(document).ready(function () {
   // Chargement initial des véhicules
   loadVehicles();
@@ -87,6 +94,21 @@
 
     // Ajouter le nouveau véhicule
     addVehicle({ nom, nbPortes, moteur, prix, nbPlaces });
+  });
+
+  // Soumettre le formulaire de modification de véhicule
+  $('#edit-vehicle-form').submit(function (event) {
+    event.preventDefault();
+
+    const id_modele = $('#id_modele').val();
+    const nom = $('#nom').val();
+    const nbPortes = $('#nbPortes').val();
+    const nbPlaces = $('#nbPlaces').val();
+    const moteur = $('#moteur').val();
+    const prix = $('#prix').val();
+
+    // Modifier le véhicule
+    editVehicle({ nom, nbPortes, moteur, prix, nbPlaces });
   });
 
   // Fonction pour charger les véhicules depuis le serveur
@@ -138,7 +160,7 @@
             nom: vehicle.nom,
             nbPortes: vehicle.nbPortes,
             moteur: vehicle.moteur,
-            nbPlaces: vehicle.nbPlaces,  // Assurez-vous que nbPlaces est correctement défini
+            nbPlaces: vehicle.nbPlaces,
             prix: vehicle.prix,
             nbPlaces: vehicle.nbPlaces
         },
@@ -176,18 +198,19 @@
         headers: {
             "Authorization":  token
         },
+      data: {
+        nom: vehicle.nom,
+        nbPortes: vehicle.nbPortes,
+        moteur: vehicle.moteur,
+        nbPlaces: vehicle.nbPlaces,
+        prix: vehicle.prix,
+        nbPlaces: vehicle.nbPlaces
+      },
       success: function () {
         loadVehicles();
       }
     });
   }
-
-  // Fonction pour vérifier si un token existe
-    function tokenExists() {
-        // Assurez-vous que le token est stocké localement lors de la connexion
-        let token = localStorage.getItem('token'); 
-        return token;
-    }
 });
 
 </script>
