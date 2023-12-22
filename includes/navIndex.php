@@ -23,7 +23,7 @@
         <li id="gestion" class="nav-item"></li>
         <li id="comptable" class="nav-item"></li>
       </ul>
-      <li class="btn btn-danger" id="logoutButtonContainer"></li>
+      <li class="" id="logoutButtonContainer"></li>
     </div>
   </div>
 </nav>

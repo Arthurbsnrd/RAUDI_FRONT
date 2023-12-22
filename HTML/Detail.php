@@ -19,6 +19,9 @@
         <!-- Les détails de la voiture seront affichés ici -->
     </div>
 
+    <div id="btn-achat">
+
+    </div>
     <script>
         // Récupérer l'ID de la voiture depuis l'URL (par exemple, /HTML/Detail.html?id=1)
         var urlParams = new URLSearchParams(window.location.search);
@@ -76,6 +79,8 @@
         function displayCarDetails(voiture) {
             console.log(voiture);
             var detailVoiture = $("#detail-voiture");
+            let achat = $("#btn-achat");
+            let btnAchat = $("<button id='btn-achat' class='btn-achat' onclick='acheter()'>Acheter</button>");
             var carCard = $("<div class='car-card'></div>");
             carCard.append("<h2>" + voiture.modeleFound.nom + "</h2>");
             carCard.append("<p> Moteur: " + voiture.modeleFound.moteur + "</p>");
@@ -83,6 +88,7 @@
             carCard.append("<p> Nombre de portes: " + voiture.modeleFound.nbPortes + " portes</p>");
             carCard.append("<p> Nombre de places: " + voiture.modeleFound.nbPlaces + " places</p>");
             detailVoiture.append(carCard);
+            achat.append(btnAchat);
         }
 
         // Fonction pour afficher les options de la voiture
@@ -90,12 +96,68 @@
             console.log(options)
             var optionsSection = $("<div id='options-section'><h2>Options disponibles</h2><ul></ul></div>");
             var optionsList = options.map(function(option) {
-                return "<li> <h4>" + option.Option.nom +":" + option.Option.prix + "</h4> </li>";
-                return "<li><input type='checkbox' name='options' value='" + option.Option.id_option + "'>" + option.Option.nom + option.Option.prix + "</li>";
+                return `
+                    <li>
+                        <h4>
+                            <input type='checkbox' name='options' value=' ${option.Option.id_option} '> ${option.Option.nom}  ${option.Option.prix} € 
+                        </h4>
+                    </li>`;
             });
             optionsSection.find("ul").append(optionsList);
             $("#detail-voiture").append(optionsSection);
         }
+
+        function acheter(){
+            // Récupérer l'ID de la voiture depuis l'URL (par exemple, /HTML/Detail.html?id=1)
+            var urlParams = new URLSearchParams(window.location.search);
+            var idVoiture = urlParams.get('id');
+            // Récupérer les options sélectionnées
+            var options = [];
+            $("input[name='options']:checked").each(function() {
+                options.push($(this).val());
+            });
+            // Récupérer le token
+            let token = localStorage.getItem('token');
+            // Requête pour l'achat de la voiture si il n'y a pas d'options alors on utilise le lien sans options
+            if (options.length == 0) {
+                $.ajax({
+                    url: "http://localhost:8000/achat/acheter/" + idVoiture ,
+                    method: "POST",
+                    headers: {
+                        "Authorization":  token
+                    },
+                    data: {
+                        id_modele: idVoiture,
+                        options: 0
+                    },
+                    success: function() {
+                        alert("Achat effectué avec succès");
+                    },
+                    error: function(err) {
+                        console.error("Erreur lors de l'achat de la voiture:", err.responseJSON.message);
+                    }
+                });
+            } else {
+                $.ajax({
+                    url: "http://localhost:8000/achat/acheter/:id_modele",
+                    method: "POST",
+                    headers: {
+                        "Authorization":  token
+                    },
+                    data: {
+                        id_modele: idVoiture,
+                        options: options,
+                    },
+                    success: function() {
+                        alert("Achat effectué avec succès");
+                    },
+                    error: function(err) {
+                        console.error("Erreur lors de l'achat de la voiture:", err.responseJSON.message);
+                    }
+                });
+            }
+        }
+            
     </script>
 </body>
 </html>
