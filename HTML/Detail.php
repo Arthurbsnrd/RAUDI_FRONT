@@ -107,56 +107,44 @@
             $("#detail-voiture").append(optionsSection);
         }
 
-        function acheter(){
-            // Récupérer l'ID de la voiture depuis l'URL (par exemple, /HTML/Detail.html?id=1)
-            var urlParams = new URLSearchParams(window.location.search);
-            var idVoiture = urlParams.get('id');
-            // Récupérer les options sélectionnées
-            var options = [];
-            $("input[name='options']:checked").each(function() {
-                options.push($(this).val());
-            });
-            // Récupérer le token
-            let token = localStorage.getItem('token');
-            // Requête pour l'achat de la voiture si il n'y a pas d'options alors on utilise le lien sans options
-            if (options.length == 0) {
-                $.ajax({
-                    url: "http://localhost:8000/achat/acheter/" + idVoiture ,
-                    method: "POST",
-                    headers: {
-                        "Authorization":  token
-                    },
-                    data: {
-                        id_modele: idVoiture,
-                        options: 0
-                    },
-                    success: function() {
-                        alert("Achat effectué avec succès");
-                    },
-                    error: function(err) {
-                        console.error("Erreur lors de l'achat de la voiture:", err.responseJSON.message);
-                    }
-                });
-            } else {
-                $.ajax({
-                    url: "http://localhost:8000/achat/acheter/:id_modele",
-                    method: "POST",
-                    headers: {
-                        "Authorization":  token
-                    },
-                    data: {
-                        id_modele: idVoiture,
-                        options: options,
-                    },
-                    success: function() {
-                        alert("Achat effectué avec succès");
-                    },
-                    error: function(err) {
-                        console.error("Erreur lors de l'achat de la voiture:", err.responseJSON.message);
-                    }
-                });
-            }
+        function acheter() {
+    // Récupérer l'ID de la voiture depuis l'URL (par exemple, /HTML/Detail.html?id=1)
+    var urlParams = new URLSearchParams(window.location.search);
+    var idVoiture = urlParams.get('id');
+    
+    // Récupérer les options sélectionnées
+    var options = [];
+    $("input[name='options']:checked").each(function() {
+        options.push($(this).val().trim());
+    });
+
+    // Récupérer le token
+    let token = localStorage.getItem('token');
+
+    // Requête pour l'achat de la voiture
+    var url = "http://localhost:8000/achat/acheter/" + idVoiture;
+    var requestData = {
+        id_modele: idVoiture,
+        options: options || [] // Utiliser options ou un tableau vide si options n'est pas défini
+    };
+
+    $.ajax({
+        url: url,
+        method: "POST",
+        headers: {
+            "Authorization":  token
+        },
+        data: requestData,
+        success: function() {
+            alert("Achat effectué avec succès");
+        },
+        error: function(err) {
+            console.error("Erreur lors de l'achat de la voiture:", err.responseJSON.message);
         }
+    });
+}
+
+
             
     </script>
 </body>

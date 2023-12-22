@@ -30,7 +30,6 @@
 
 
 <script defer>
-
     function logout() {
         localStorage.removeItem('token');
         alert("Vous êtes bien déconnecté !");
