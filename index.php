@@ -9,25 +9,25 @@
     </head>
     <body>            
         <header>
-            <div class="conteneur">
-                <div class="haut-gauche">
-                    <a href="./index.html">
-                        <h1>RAUDI</h1>
-                    </a>
-                </div>
-                <div class="clear"></div>
-                <nav>
-                    <ul>
-                        <li><a href="./HTML/Inscription.html">Inscription</a></li>
-                        <li><a href="./HTML/Connexion.html">Connexion</a></li>
-                        <li><a href="./HTML/Gestion.html">Gestion</a></li>
-                        <li><a href="./HTML/Comptabilité.html">Comptabilité</a></li>
-                        <li>
-                            <button onclick="logout()">Déconnexion</button>
-                        </li>
-                    </ul>
-                </nav>
+        <div class="conteneur">
+            <div class="haut-gauche">
+                <a href="#">
+                    <h1>RAUDI</h1>
+                </a>
             </div>
+            <div class="clear"></div>
+            <nav>
+                <ul>
+                    <li><a href="./HTML/Inscription.php">Inscription</a></li>
+                    <li><a href="./HTML/Connexion.php">Connexion</a></li>
+                    <li><a href="./HTML/Gestion.php">Gestion</a></li>
+                    <li><a href="./HTML/Comptabilité.php">Comptabilité</a></li>
+                    <li>
+                        <button onclick="logout()">Déconnexion</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         </header>
         
 
@@ -55,10 +55,7 @@
                 });
             });
 
-            function logout() {
-                localStorage.removeItem('token');
-                window.location.href = "./index.html";
-            }
+
         </script>
         
 

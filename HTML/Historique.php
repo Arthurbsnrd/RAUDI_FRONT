@@ -5,18 +5,9 @@
     <link rel="stylesheet" type="text/css" href="/CSS/Historique.css">
 </head>
 <body>
-    <!-- BEGIN: Vérification des droits d'accès -->
-    <script>
-        // Vérifier si l'utilisateur est un comptable
-        var isComptable = true;
-
-        if (!isComptable) {
-            // Rediriger vers une page d'erreur ou afficher un message d'erreur
-            window.location.href = "erreur.html";
-        }
-    </script>
-    <!-- END: Vérification des droits d'accès -->
-
+    <header>
+        <?php include("../includes/nav.php"); ?>
+    </header>
     <h1>Historique des achats effectués</h1>
     <ul>
         <li>Achat 1 - Date, Montant, Voiture</li>

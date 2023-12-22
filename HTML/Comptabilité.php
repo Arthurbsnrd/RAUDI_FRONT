@@ -10,21 +10,7 @@
 </head>
 <body>
     <header>
-        <div class="conteneur">
-            <div class="haut-gauche">
-                <a href="../index.html">
-                    <h1>RAUDI</h1>
-                </a>
-            </div>
-            <div class="clear"></div>
-            <nav>
-                <ul>
-                    <li><a href="/Inscription.html">Inscription</a></li>
-                    <li><a href="/Connexion.html">Connexion</a></li>
-                    <li><a href="/Gestion.html">Gestion</a></li>
-                </ul>
-            </nav>
-        </div>
+        <?php include("../includes/nav.php"); ?>
     </header>
 
     <h1>Comptabilité</h1>
@@ -85,26 +71,37 @@
                 achatsList.append("<li>Aucun achat effectué</li>");
             } else {
                 for (var i = 0; i < achats.length; i++) {
-                    achatsList.append("<li>" + achats[i].description + " - " + achats[i].prixtotal + " €</li>");
+                    var date = new Date(achats[i].createdAt); // Récupère la date de création de l'achat
+
+                    var jour = date.getDate(); // Récupère le jour du mois (1-31)
+                    var mois = date.getMonth() + 1; // +1 car les mois commencent à 0
+                    var annee = date.getFullYear(); // Récupère l'année (4 chiffres)
+
+                    // Formatage manuel de la date en "d-m-Y"
+                    var dateFormatee = (jour < 10 ? '0' : '') + jour + '-' + (mois < 10 ? '0' : '') + mois + '-' + annee;
+
+                    
+                    achatsList.append("<li>Prix: " + achats[i].prixtotal + " - Date: " + dateFormatee + "</li>");
                 }
             }
         }
 
         // Fonction pour afficher le compte rendu du gain total par mois
         function displayGainMois(gainMois) {
+            console.log(gainMois);
             var gainMoisList = $("#gain-mois-list");
             gainMoisList.empty();
-
-            // additionne les valeurs de chaque mois
-            var total = 0;
-            if (!gainMois) {
-                gainMoisList.append("<li>Aucun achat effectué</li>");
-            } else {
-                for (var i = 0; i < gainMois.length; i++) {
-                    total += gainMois.prixtotal;
-                }
-                gainMoisList.append("<li>" + total + " €</li>");
-            }
+            // recupere le mois actuel pour calculer le gain du mois
+            var date = new Date();
+            var mois = date.getMonth() + 1; // +1 car les mois commencent à 0
+            var annee = date.getFullYear(); // Récupère l'année (4 chiffres)
+            var dateFormatee = (mois < 10 ? '0' : '') + mois + '-' + annee;
+            gainMoisList.append("<li>Gain total du mois: " + gainMois + " - Mois: " + dateFormatee + "</li>");
+            // if (gainMois.length == 0) {
+            //     gainMoisList.append("<li>Aucun achat effectué</li>");
+            // } else {
+            //     gainMoisList.append("<li>Gain total du mois: " + gainMois + "</li>");
+            // }
         }
 
         // Appeler les fonctions pour récupérer et afficher les données

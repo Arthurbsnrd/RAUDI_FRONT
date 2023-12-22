@@ -8,24 +8,9 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
-    <header>
-        <div class="conteneur">
-            <div class="haut-gauche">
-                <a href="../index.html">
-                    <h1>RAUDI</h1>
-                </a>
-            </div>
-            <div class="clear"></div>
-            <nav>
-                <ul>
-                    <li><a href="./Inscription.html">Inscription</a></li>
-                    <li><a href="./Connexion.html">Connexion</a></li>
-                    <li><a href="./Gestion.html">Gestion</a></li>
-                    <li><a href="./Comptabilité.html">Comptabilité</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <header>
+            <?php include("../includes/nav.php"); ?>
+        </header>
 
     <h1>Inscription</h1>
 

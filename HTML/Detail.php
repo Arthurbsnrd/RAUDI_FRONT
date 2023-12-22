@@ -10,21 +10,7 @@
 </head>
 <body>
     <header>
-        <div class="conteneur">
-            <div class="haut-gauche">
-                <a href="../index.html">
-                    <h1>RAUDI</h1>
-                </a>
-            </div>
-            <div class="clear"></div>
-            <nav>
-                <ul>
-                    <li><a href="/Inscription.html">Inscription</a></li>
-                    <li><a href="/Connexion.html">Connexion</a></li>
-                    <li><a href="/Gestion.html">Gestion</a></li>
-                </ul>
-            </nav>
-        </div>
+        <?php include("../includes/nav.php"); ?>
     </header>
 
     <h1>Détail de la voiture</h1>

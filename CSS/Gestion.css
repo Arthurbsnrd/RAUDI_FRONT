@@ -1,40 +1,27 @@
-.gestion-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Styles pour les éléments de gestion */
-.gestion-item {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
-}
-
-/* Styles pour les titres de gestion */
-.gestion-title {
-    font-size: 18px;
-    font-weight: bold;
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h2 {
     color: #333;
-}
-
-/* Styles pour les boutons de gestion */
-.gestion-button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.gestion-button:hover {
-    background-color: #0056b3;
-}
-
-.gestion-button:active {
-    background-color: #004080;
-}
+  }
+  
+  #vehicles-list {
+    margin-bottom: 30px;
+  }
+  
+  #vehicles-ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #vehicles-ul li {
+    margin-bottom: 10px;
+  }
+  
+  #vehicle-form {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+  
