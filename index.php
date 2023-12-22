@@ -9,25 +9,7 @@
     </head>
     <body>            
         <header>
-        <div class="conteneur">
-            <div class="haut-gauche">
-                <a href="#">
-                    <h1>RAUDI</h1>
-                </a>
-            </div>
-            <div class="clear"></div>
-            <nav>
-                <ul>
-                    <li><a href="./HTML/Inscription.php">Inscription</a></li>
-                    <li><a href="./HTML/Connexion.php">Connexion</a></li>
-                    <li><a href="./HTML/Gestion.php">Gestion</a></li>
-                    <li><a href="./HTML/Comptabilité.php">Comptabilité</a></li>
-                    <li>
-                        <button onclick="logout()">Déconnexion</button>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+            <?php include("./includes/navIndex.php"); ?>
         </header>
         
 
@@ -47,7 +29,7 @@
                         var carCard = $("<div class='car-card'></div>");
                         carCard.append("<h2>" + voiture.nom + "</h2>");
                         carCard.append("<p> Moteur: " + voiture.moteur + "</p>");
-                        carCard.append("<a href='/HTML/Detail.html?id=" + voiture.id_modele + "'>Voir les détails</a>");
+                        carCard.append("<a href='./HTML/Detail.php?id=" + voiture.id_modele + "'>Voir les détails</a>");
     
                         // Ajouter la carte à la section des voitures
                         voituresSection.append(carCard);

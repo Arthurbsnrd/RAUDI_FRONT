@@ -91,6 +91,7 @@
             var optionsSection = $("<div id='options-section'><h2>Options disponibles</h2><ul></ul></div>");
             var optionsList = options.map(function(option) {
                 return "<li> <h4>" + option.Option.nom +":" + option.Option.prix + "</h4> </li>";
+                return "<li><input type='checkbox' name='options' value='" + option.Option.id_option + "'>" + option.Option.nom + option.Option.prix + "</li>";
             });
             optionsSection.find("ul").append(optionsList);
             $("#detail-voiture").append(optionsSection);

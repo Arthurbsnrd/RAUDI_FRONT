@@ -42,6 +42,8 @@
                 success: function(data) {
                     console.log('Utilisateur créé avec succès:');
                     // Rediriger vers une autre page, afficher un message, etc., en fonction de vos besoins
+                    alert("Vous êtes bien inscrit ! Vous pouvez maintenant vous connecter.");
+                    window.location.href = "./Connexion.php";
                 },
                 error: function(err) {
                     console.error('Erreur lors de la création de l\'utilisateur:', err.responseJSON.message);

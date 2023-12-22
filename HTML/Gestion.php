@@ -51,7 +51,7 @@
   // Soumettre le formulaire d'ajout de véhicule
   $('#add-vehicle-form').submit(function (event) {
     event.preventDefault();
-    
+
     const nom = $('#nom').val();
     const nbPortes = $('#nbPortes').val();
     const nbPlaces = $('#nbPlaces').val();
@@ -77,11 +77,11 @@
     vehicles.forEach(function (vehicle) {
       $vehiclesList.append(`
       <li>
-        ${vehicle.nom} - 
-        ${vehicle.nbPortes} portes - 
+        Nom du véhicule: ${vehicle.nom} -
+        Nombre de portes: ${vehicle.nbPortes} - 
         Moteur: ${vehicle.moteur} - 
         Prix: ${vehicle.prix} - 
-        ${vehicle.nbPlaces} 
+        Nombre de places: ${vehicle.nbPlaces} 
         <button class="delete" data-id="${vehicle.id_modele}">Supprimer</button>
     </li>`);
     });

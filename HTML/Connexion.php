@@ -37,13 +37,12 @@
                 data: JSON.stringify({ mail, password }),
                 success: function(data) {
                     console.log('Connexion réussie. Token reçu:', data.token);
-                    // Stocker le token localement (par exemple, dans localStorage)
                     localStorage.setItem('token', data.token);
-                    // Rediriger vers une autre page, afficher un message, etc., en fonction de vos besoins
+                    alert("Vous êtes bien connecté !");
+                    window.location.href = "../index.php";
                 },
                 error: function(err) {
                     console.error('Erreur lors de la connexion:', err.responseJSON.message);
-                    // Afficher un message d'erreur à l'utilisateur, rediriger, etc., en fonction de vos besoins
                 }
             });
         }
