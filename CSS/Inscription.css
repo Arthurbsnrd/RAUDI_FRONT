@@ -1,37 +1,4 @@
-form {
-    width: 300px;
+form{
+    width: 80vw;
     margin: 0 auto;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* Styles pour les messages d'erreur */
-.error-message {
-    color: red;
-    margin-bottom: 10px;
-}
-
-/* Styles pour les messages de succès */
-.success-message {
-    color: green;
-    margin-bottom: 10px;
 }

@@ -16,26 +16,26 @@
 
 <div id="vehicle-form">
   <h2>Ajouter un Nouveau Véhicule</h2>
-  <form id="add-vehicle-form">
+  <form id="add-vehicle-form" class="mb-3">
     <label for="nom">Nom modèle:</label>
-    <input type="text" id="nom" name="nom" required>
+    <input type="text" id="nom" name="nom"  class="form-control" required>
 
     <label for="nbPortes">Nombre de portes:</label>
-    <input type="number" id="nbPortes" name="nbPortes" required>
+    <input type="number" id="nbPortes" name="nbPortes" class="form-control" required>
 
     <label for="nbPlaces">Nombre de places:</label>
-    <input type="number" id="nbPlaces" name="nbPlaces" required>
+    <input type="number" id="nbPlaces" name="nbPlaces" class="form-control" required>
     
-    <label for="moteur">Moteur:</label>
-    <select name="moteur" id="moteur">
+    <label for="moteur" >Moteur:</label>
+    <select class="form-select" name="moteur" id="moteur">
         <option value="essence">Essence</option>
         <option value="diesel">Diesel</option>
     </select>
 
     <label for="prix">Prix:</label>
-    <input type="number" id="prix" name="prix" required>
+    <input type="number" id="prix" name="prix" class="form-control" required>
 
-    <button type="submit">Ajouter</button>
+    <button type="submit" class="btn btn-submit btn-primary" >Ajouter</button>
   </form>
 </div>
 
@@ -76,13 +76,17 @@
 
     vehicles.forEach(function (vehicle) {
       $vehiclesList.append(`
-      <li>
-        Nom du véhicule: ${vehicle.nom} -
-        Nombre de portes: ${vehicle.nbPortes} - 
-        Moteur: ${vehicle.moteur} - 
-        Prix: ${vehicle.prix} - 
-        Nombre de places: ${vehicle.nbPlaces} 
-        <button class="delete" data-id="${vehicle.id_modele}">Supprimer</button>
+      <li class="list-group-item">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+              <strong>Nom du véhicule:</strong> ${vehicle.nom} -
+              <strong>Nombre de portes:</strong> ${vehicle.nbPortes} -
+              <strong>Moteur:</strong> ${vehicle.moteur} -
+              <strong>Prix:</strong> ${vehicle.prix} -
+              <strong>Nombre de places:</strong> ${vehicle.nbPlaces}
+          </div>
+            <button class="btn btn-danger delete" data-id="${vehicle.id_modele}">Supprimer</button>
+        </div>
     </li>`);
     });
 

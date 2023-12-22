@@ -12,17 +12,19 @@
     <header>
         <?php include("../includes/nav.php"); ?>
     </header>
+    <div class="comptable">
 
-    <h1>Comptabilité</h1>
-
-    <div id="historique-achats">
-        <h2>Historique des achats</h2>
-        <ul id="achats-list"></ul>
-    </div>
-
-    <div id="gain-total-mois">
-        <h2>Compte rendu du gain total par mois</h2>
-        <ul id="gain-mois-list"></ul>
+        <h1>Comptabilité</h1>
+    
+        <div id="historique-achats">
+            <h2>Historique des achats</h2>
+            <ul id="achats-list"></ul>
+        </div>
+    
+        <div id="gain-total-mois">
+            <h2>Compte rendu du gain total par mois</h2>
+            <ul id="gain-mois-list"></ul>
+        </div>
     </div>
 
     <script>
@@ -81,7 +83,13 @@
                     var dateFormatee = (jour < 10 ? '0' : '') + jour + '-' + (mois < 10 ? '0' : '') + mois + '-' + annee;
 
                     
-                    achatsList.append("<li>Prix: " + achats[i].prixtotal + " - Date: " + dateFormatee + "</li>");
+                    achatsList.append(`
+                        <li class="list-group-item">
+                            <strong>Prix:</strong> ${achats[i].prixtotal} - 
+                            <strong>Date:</strong> ${dateFormatee}
+                        </li>
+                    `);
+
                 }
             }
         }
@@ -96,12 +104,12 @@
             var mois = date.getMonth() + 1; // +1 car les mois commencent à 0
             var annee = date.getFullYear(); // Récupère l'année (4 chiffres)
             var dateFormatee = (mois < 10 ? '0' : '') + mois + '-' + annee;
-            gainMoisList.append("<li>Gain total du mois: " + gainMois + " - Mois: " + dateFormatee + "</li>");
-            // if (gainMois.length == 0) {
-            //     gainMoisList.append("<li>Aucun achat effectué</li>");
-            // } else {
-            //     gainMoisList.append("<li>Gain total du mois: " + gainMois + "</li>");
-            // }
+            gainMoisList.append(`
+                <li class="list-group-item">
+                    <strong>Gain total du mois:</strong> ${gainMois} - 
+                    <strong>Mois:</strong> ${dateFormatee}
+                </li>
+            `);
         }
 
         // Appeler les fonctions pour récupérer et afficher les données

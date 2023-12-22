@@ -1,27 +1,9 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  
-  h2 {
-    color: #333;
-  }
-  
-  #vehicles-list {
-    margin-bottom: 30px;
-  }
-  
-  #vehicles-ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  #vehicles-ul li {
-    margin-bottom: 10px;
-  }
-  
-  #vehicle-form {
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
-  }
-  
+#vehicle-form{
+  width: 80vw;
+  margin: 0 auto;
+}
+
+#vehicles-list{
+  width: 80vw;
+  margin: 0 auto;
+}
