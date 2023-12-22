@@ -12,9 +12,9 @@
     <div class="clear"></div>
     <nav>
         <ul>
+            <li><a href="./index.php">Voitures</a></li>
             <li><a href="./HTML/Inscription.php">Inscription</a></li>
             <li><a href="./HTML/Connexion.php">Connexion</a></li>
-            <li><a href="./index.php">Voitures</a></li>
             <li id="gestion"></li>
             <li id="comptable"></li>
             <li id="logoutButtonContainer">

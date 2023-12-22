@@ -13,9 +13,9 @@
     <div class="clear"></div>
     <nav>
         <ul>
+            <li><a href="../index.php">Voitures</a></li>
             <li><a href="./Inscription.php">Inscription</a></li>
             <li><a href="./Connexion.php">Connexion</a></li>
-            <li><a href="../index.php">Voitures</a></li>
             <li id="gestion"></li>
             <li id="comptable"></li>
             <li id="logoutButtonContainer">
