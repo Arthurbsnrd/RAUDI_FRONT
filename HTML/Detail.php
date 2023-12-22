@@ -19,6 +19,10 @@
         <!-- Les détails de la voiture seront affichés ici -->
     </div>
 
+
+    <div id="prix-total">
+        <!-- Le prix total sera affiché ici -->
+    </div>
     <div id="btn-achat">
 
     </div>
@@ -74,6 +78,7 @@
             carCard.append("<p> Nombre de places: " + voiture.nbPlaces + " places</p>");
             detailVoiture.append(carCard);
         }
+        var prixDeBase = 0; // Initialisez le prix de base à 0
 
         // Fonction pour afficher les détails de la voiture
         function displayCarDetails(voiture) {
@@ -89,6 +94,24 @@
             carCard.append("<p> Nombre de places: " + voiture.modeleFound.nbPlaces + " places</p>");
             detailVoiture.append(carCard);
             achat.append(btnAchat);
+
+            prixDeBase = voiture.modeleFound.prix;
+            prixVoiture = prixDeBase;
+            // Mettez à jour l'affichage du prix total
+            $("#prix-total").text("Prix total: " + prixDeBase + " €");
+        }
+
+        // Fonction pour mettre à jour le prix total
+        function updatePrixTotal() {
+            var prixTotal = prixVoiture; // Initialisez le prix total avec le prix de base
+
+            // Ajouter le prix de chaque option sélectionnée
+            $("input[name='options']:checked").each(function() {
+                prixTotal += parseInt($(this).data('price')); // .data('price') récupère le prix de l'option
+            });
+
+            // Mettez à jour l'affichage du prix total
+            $("#prix-total").text("Prix total: " + prixTotal + " €");
         }
 
         // Fonction pour afficher les options de la voiture
@@ -99,7 +122,7 @@
                 return `
                     <li>
                         <h4>
-                            <input type='checkbox' name='options' value=' ${option.Option.id_option} '> ${option.Option.nom}  ${option.Option.prix} € 
+                            <input data-price='${option.Option.prix}' type='checkbox' name='options' value='${option.Option.id_option}' onchange='updatePrixTotal()'> ${option.Option.nom}  ${option.Option.prix} € 
                         </h4>
                     </li>`;
             });
@@ -107,42 +130,46 @@
             $("#detail-voiture").append(optionsSection);
         }
 
+
         function acheter() {
-    // Récupérer l'ID de la voiture depuis l'URL (par exemple, /HTML/Detail.html?id=1)
-    var urlParams = new URLSearchParams(window.location.search);
-    var idVoiture = urlParams.get('id');
-    
-    // Récupérer les options sélectionnées
-    var options = [];
-    $("input[name='options']:checked").each(function() {
-        options.push($(this).val().trim());
-    });
+            // Récupérer l'ID de la voiture depuis l'URL (par exemple, /HTML/Detail.html?id=1)
+            var urlParams = new URLSearchParams(window.location.search);
+            var idVoiture = urlParams.get('id');
 
-    // Récupérer le token
-    let token = localStorage.getItem('token');
+            const options = [];
+            
+            // Récupérer les options sélectionnées
+            $("input[name='options']:checked").each(function() {
+                options.push($(this).val().trim());
+            });
 
-    // Requête pour l'achat de la voiture
-    var url = "http://localhost:8000/achat/acheter/" + idVoiture;
-    var requestData = {
-        id_modele: idVoiture,
-        options: options || [] // Utiliser options ou un tableau vide si options n'est pas défini
-    };
+            // Récupérer le token
+            let token = localStorage.getItem('token');
 
-    $.ajax({
-        url: url,
-        method: "POST",
-        headers: {
-            "Authorization":  token
-        },
-        data: requestData,
-        success: function() {
-            alert("Achat effectué avec succès");
-        },
-        error: function(err) {
-            console.error("Erreur lors de l'achat de la voiture:", err.responseJSON.message);
+            // Requête pour l'achat de la voiture
+            var url = "http://localhost:8000/achat/acheter/" + idVoiture;
+            var requestData = {
+                id_modele: idVoiture,
+                options: options || [] // Utiliser options ou un tableau vide si options n'est pas défini
+            };
+
+            console.log(requestData);
+
+            $.ajax({
+                url: url,
+                method: "POST",
+                headers: {
+                    "Authorization":  token
+                },
+                data: requestData,
+                success: function() {
+                    alert("Achat effectué avec succès");
+                },
+                error: function(err) {
+                    console.error("Erreur lors de l'achat de la voiture:", err.responseJSON.message);
+                }
+            });
         }
-    });
-}
 
 
             

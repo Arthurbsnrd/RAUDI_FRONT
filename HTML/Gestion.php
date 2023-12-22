@@ -39,6 +39,33 @@
   </form>
 </div>
 
+<div class="edit">
+    <h2>Modifier un véhicule</h2>
+    <form id="edit-vehicle-form" class="mb-3">
+        <label for="id_modele">ID modèle:</label>
+        <input type="number" id="id_modele" name="id_modele"  class="form-control" required>
+        <label for="nom">Nom modèle:</label>
+        <input type="text" id="nom" name="nom"  class="form-control" required>
+
+        <label for="nbPortes">Nombre de portes:</label>
+        <input type="number" id="nbPortes" name="nbPortes" class="form-control" required>
+
+        <label for="nbPlaces">Nombre de places:</label>
+        <input type="number" id="nbPlaces" name="nbPlaces" class="form-control" required>
+
+        <label for="moteur" >Moteur:</label>
+        <select class="form-select" name="moteur" id="moteur">
+            <option value="essence">Essence</option>
+            <option value="diesel">Diesel</option>
+        </select>
+
+        <label for="prix">Prix:</label>
+        <input type="number" id="prix" name="prix" class="form-control" required>
+
+        <button type="submit" class="btn btn-submit btn-primary" >Modifier</button>
+    </form>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </body>
 </html>
@@ -79,6 +106,7 @@
       <li class="list-group-item">
         <div class="d-flex justify-content-between align-items-center">
           <div>
+              <strong>ID:</strong> ${vehicle.id_modele} -
               <strong>Nom du véhicule:</strong> ${vehicle.nom} -
               <strong>Nombre de portes:</strong> ${vehicle.nbPortes} -
               <strong>Moteur:</strong> ${vehicle.moteur} -
@@ -130,6 +158,21 @@
     $.ajax({
       url: `http://localhost:8000/modele/modeles/${vehicleId}`,
       method: 'DELETE',
+        headers: {
+            "Authorization":  token
+        },
+      success: function () {
+        loadVehicles();
+      }
+    });
+  }
+
+  // Fonction pour modifier un véhicule par ID
+  function editVehicle(vehicleId) {
+    let token = tokenExists()
+    $.ajax({
+      url: `http://localhost:8000/modele/modeles/${vehicleId}`,
+      method: 'PUT',
         headers: {
             "Authorization":  token
         },
